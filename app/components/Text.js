@@ -10,4 +10,3 @@ export default function Text({ as, children, color, style }) {
     </RNText>
   );
 }
-

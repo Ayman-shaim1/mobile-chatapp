@@ -16,7 +16,10 @@ export default function ConvertationItem({
     <TouchableOpacity
       style={styles.convertation}
       onPress={() => {
-        navigation.navigate(routes.CHAT);
+        navigation.navigate(routes.CHAT, {
+          image: convertation.image,
+          name: convertation.name,
+        });
       }}>
       <Avatar
         image={convertation.image}

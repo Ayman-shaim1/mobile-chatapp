@@ -12,7 +12,11 @@ export default function Avatar({
     <>
       <View
         style={[
-          size === "md" ? styles.activityCircle : styles.activityCircleLg,
+          size === "md"
+            ? styles.activityCircle
+            : size === "sm"
+            ? styles.activityCircleSm
+            : styles.activityCircleLg,
           activity && {
             borderWidth: 2,
           },
@@ -24,7 +28,13 @@ export default function Avatar({
         ]}>
         <Image
           source={image}
-          style={size === "md" ? styles.avatar : styles.avatarLg}
+          style={
+            size === "md"
+              ? styles.avatar
+              : size === "sm"
+              ? styles.avatarSm
+              : styles.avatarLg
+          }
         />
       </View>
     </>
@@ -51,6 +61,18 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 37.5,
+    borderColor: "#f4f4f4",
+    borderWidth: 1,
+  },
+
+  activityCircleSm: {
+    padding: 3,
+    borderRadius: 20,
+  },
+  avatarSm: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     borderColor: "#f4f4f4",
     borderWidth: 1,
   },

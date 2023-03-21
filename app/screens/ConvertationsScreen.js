@@ -86,7 +86,7 @@ const CONVERTATIONS = [
   {
     image: require("../assets/users-images/image4.png"),
     name: "Richard Roe",
-    message: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+    message: "Lorem ipsum dolor",
     date: new Date(),
     nbrMessages: 1,
     activity: true,
@@ -170,11 +170,8 @@ export default function ConvertationsScreen({ navigation }) {
               key={index}
               navigation={navigation}
               convertation={convertation}
-              activity={convertation.activity}
-              seenActivty={convertation.seenActivty}
             />
           ))}
-
           {/* End Convertations Section  Content */}
         </View>
         {/* End Convertations Section  */}

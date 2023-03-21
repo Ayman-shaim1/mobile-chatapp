@@ -16,7 +16,9 @@ export default function ActivityItem({
       <TouchableOpacity
         onPress={() => {
           navigation.navigate(routes.ACTIVITY, {
-            activity: activity,
+            image,
+            name,
+            activity,
           });
         }}>
         <Avatar image={image} size='lg' seenActivty={seenActivty} />
