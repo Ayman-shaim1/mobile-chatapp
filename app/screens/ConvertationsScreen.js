@@ -1,7 +1,13 @@
-import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import { ActivityItem, Screen, Text, ConvertationItem } from "../components";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 import colors from "../config/colors";
 
 const ACTIVITIES = [
@@ -176,6 +182,9 @@ export default function ConvertationsScreen({ navigation }) {
         </View>
         {/* End Convertations Section  */}
       </ScrollView>
+      <TouchableOpacity style={styles.btnAdd}>
+        <Ionicons name='add' size={30} color={colors.white} />
+      </TouchableOpacity>
     </Screen>
   );
 }
@@ -206,5 +215,16 @@ const styles = StyleSheet.create({
   },
   activitiesContent: {
     paddingVertical: 20,
+  },
+  btnAdd: {
+    position: "absolute",
+    width: 65,
+    height: 65,
+    borderRadius: 32.5,
+    backgroundColor: colors.primary,
+    justifyContent: "center",
+    alignItems: "center",
+    bottom: 20,
+    right: 10,
   },
 });

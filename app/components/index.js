@@ -5,7 +5,4 @@ export { default as Text } from "./Text";
 export { default as ActivityItem } from "./ActivityItem";
 export { default as Avatar } from "./Avatar";
 export { default as ConvertationItem } from "./ConvertationItem";
-
-
-
-
+export { default as MessageItem } from "./MessageItem";
