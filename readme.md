@@ -1,17 +1,16 @@
 # ChatApp
 
-
-
 ## Convertations Screen
-![Convertations Screen](C:\Users\NANOTECH\Desktop\chatapp-images\convertations.png)
 
+![Convertations Screen](./screenshots/convertations.png)
 
 ## Chat Screen
-![Chat Screen](C:\Users\NANOTECH\Desktop\chatapp-images\chat.png)
 
+![Chat Screen](./screenshots/chat.png)
 
 ## Activity Screen
-![Activity Screen](C:\Users\NANOTECH\Desktop\chatapp-images\activity.png)
+
+![Activity Screen](./screenshots/activity.png)
 
 # Getting Started
 
@@ -22,6 +21,3 @@ To get started with the app, follow these steps:
 3. Run the app: `expo start`
 
 Please note that this app requires Node.js and Expo cli to be installed on your development machine.
-
-
-
