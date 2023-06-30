@@ -2,15 +2,18 @@
 
 ## Convertations Screen
 
-![Convertations Screen](./screenshots/convertations.PNG)
+![Convertations Screen]
+<img src="./screenshots/convertations.PNG" alt="Home Screen" width="300" height="600">
 
 ## Chat Screen
 
-![Chat Screen](./screenshots/chat.PNG)
+![Chat Screen]
+<img src="./screenshots/chat.PNG" alt="Home Screen" width="300" height="600">
 
 ## Activity Screen
 
-![Activity Screen](./screenshots/activity.PNG)
+![Activity Screen]
+<img src="./screenshots/activity.PNG" alt="Home Screen" width="300" height="600">
 
 # Getting Started
 
