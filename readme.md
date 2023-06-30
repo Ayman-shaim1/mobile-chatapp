@@ -2,15 +2,15 @@
 
 ## Convertations Screen
 
-![Convertations Screen](./screenshots/convertations.png)
+![Convertations Screen](./screenshots/convertations.PNG)
 
 ## Chat Screen
 
-![Chat Screen](./screenshots/chat.png)
+![Chat Screen](./screenshots/chat.PNG)
 
 ## Activity Screen
 
-![Activity Screen](./screenshots/activity.png)
+![Activity Screen](./screenshots/activity.PNG)
 
 # Getting Started
 
