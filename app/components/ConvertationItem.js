@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
   convertationText: {
     marginLeft: 10,
-    width: "65%",
+    width: "70%",
   },
   message: {
     color: "gray",

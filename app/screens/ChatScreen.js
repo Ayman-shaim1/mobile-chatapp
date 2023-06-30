@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   TouchableOpacityBase,
+  FlatList,
 } from "react-native";
 import React, { useState } from "react";
 import { Avatar, Button, MessageItem, Screen, TextInput } from "../components";
@@ -14,26 +15,43 @@ import { Ionicons } from "@expo/vector-icons";
 
 const MESSAGES = [
   {
+    id: 1,
     incomingMessage: true,
     seen: false,
     message: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, totam debitis culpa laborum ullam ea? Esse dolorum quas consequuntur perspiciatis minus officiis explicabo nam placeat eveniet molestiae, porro quam at.`,
   },
   {
-    incomingMessage: false,
-    seen: false,
-    message: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, totam debitis culpa laborum ullam ea? Esse dolorum quas consequuntur perspiciatis minus officiis explicabo nam placeat eveniet molestiae, porro quam at.`,
-  },
-  {
+    id: 2,
     incomingMessage: true,
     seen: false,
     message: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, totam debitis culpa laborum ullam ea? Esse dolorum quas consequuntur perspiciatis minus officiis explicabo nam placeat eveniet molestiae, porro quam at.`,
   },
   {
+    id: 3,
+    incomingMessage: true,
+    seen: false,
+    message: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, totam debitis culpa laborum ullam ea? Esse dolorum quas consequuntur perspiciatis minus officiis explicabo nam placeat eveniet molestiae, porro quam at.`,
+  },
+  {
+    id: 4,
     incomingMessage: false,
     seen: false,
     message: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, totam debitis culpa laborum ullam ea? Esse dolorum quas consequuntur perspiciatis minus officiis explicabo nam placeat eveniet molestiae, porro quam at.`,
   },
   {
+    id: 5,
+    incomingMessage: true,
+    seen: false,
+    message: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, totam debitis culpa laborum ullam ea? Esse dolorum quas consequuntur perspiciatis minus officiis explicabo nam placeat eveniet molestiae, porro quam at.`,
+  },
+  {
+    id: 6,
+    incomingMessage: false,
+    seen: false,
+    message: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, totam debitis culpa laborum ullam ea? Esse dolorum quas consequuntur perspiciatis minus officiis explicabo nam placeat eveniet molestiae, porro quam at.`,
+  },
+  {
+    id: 7,
     incomingMessage: true,
     seen: false,
     message: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, totam debitis culpa laborum ullam ea? Esse dolorum quas consequuntur perspiciatis minus officiis explicabo nam placeat eveniet molestiae, porro quam at.`,
@@ -100,16 +118,20 @@ export default function ChatScreen({ route, navigation }) {
       {/* End Chat Header */}
 
       {/* Begin Message Content */}
-      <ScrollView style={styles.messagesContent}>
-        {MESSAGES.map((message, index) => (
+
+      <FlatList
+        style={styles.messagesContent}
+        data={MESSAGES}
+        renderItem={({ item }) => (
           <MessageItem
-            key={index}
-            message={message.message}
-            seen={message.message}
-            incomingMessage={message.incomingMessage}
+            message={item.message}
+            seen={item.message}
+            incomingMessage={item.incomingMessage}
           />
-        ))}
-      </ScrollView>
+        )}
+        keyExtractor={item => item.id}
+      />
+
       {/* End Message Content */}
 
       {/* Begin Send Message */}
@@ -143,7 +165,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 14,
     paddingBottom: 10,
-
   },
   headerOpl: {
     flexDirection: "row",

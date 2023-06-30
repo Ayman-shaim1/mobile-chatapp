@@ -1,4 +1,5 @@
 import {
+  FlatList,
   ScrollView,
   StyleSheet,
   Touchable,
@@ -12,24 +13,28 @@ import colors from "../config/colors";
 
 const ACTIVITIES = [
   {
+    id: 1,
     image: require("../assets/users-images/image1.png"),
     name: "Jhon Doe",
     seenActivty: false,
     activity: require("../assets/activities/activity-1.png"),
   },
   {
+    id: 2,
     image: require("../assets/users-images/image2.png"),
     name: "Steve Smith",
     seenActivty: false,
     activity: require("../assets/activities/activity-2.png"),
   },
   {
+    id: 3,
     image: require("../assets/users-images/image3.png"),
     name: "Jane Doe",
     seenActivty: true,
     activity: require("../assets/activities/activity-3.jpeg"),
   },
   {
+    id: 4,
     image: require("../assets/users-images/image4.png"),
     name: "Richard Roe",
     seenActivty: true,
@@ -39,6 +44,7 @@ const ACTIVITIES = [
 
 const CONVERTATIONS = [
   {
+    id: 1,
     image: require("../assets/users-images/image1.png"),
     name: "Steve Smith",
     message:
@@ -49,6 +55,7 @@ const CONVERTATIONS = [
     seenActivty: false,
   },
   {
+    id: 2,
     image: require("../assets/users-images/image2.png"),
     name: "Jhon Doe",
     message: "Lorem ipsum dolor sit amet consectetur adipisicing.",
@@ -57,6 +64,7 @@ const CONVERTATIONS = [
     seenActivty: true,
   },
   {
+    id: 3,
     image: require("../assets/users-images/image3.png"),
     name: "Jane Doe",
     message: "Lorem ipsum dolor sit amet consectetur adipisicing.",
@@ -65,6 +73,7 @@ const CONVERTATIONS = [
     seenActivty: false,
   },
   {
+    id: 4,
     image: require("../assets/users-images/image4.png"),
     name: "Richard Roe",
     message: "Lorem ipsum dolor sit amet consectetur adipisicing.",
@@ -74,6 +83,7 @@ const CONVERTATIONS = [
     seenActivty: false,
   },
   {
+    id: 5,
     image: require("../assets/users-images/image2.png"),
     name: "Jhon Doe",
     message: "Lorem ipsum dolor sit amet consectetur adipisicing.",
@@ -82,6 +92,7 @@ const CONVERTATIONS = [
     seenActivty: false,
   },
   {
+    id: 6,
     image: require("../assets/users-images/image3.png"),
     name: "Jane Doe",
     message: "Lorem ipsum dolor sit amet consectetur adipisicing.",
@@ -90,6 +101,7 @@ const CONVERTATIONS = [
     seenActivty: false,
   },
   {
+    id: 7,
     image: require("../assets/users-images/image4.png"),
     name: "Richard Roe",
     message: "Lorem ipsum dolor",
@@ -103,85 +115,88 @@ const CONVERTATIONS = [
 export default function ConvertationsScreen({ navigation }) {
   return (
     <Screen style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Begin Header */}
-        <View style={styles.header}>
-          {/* Begin Header Title*/}
-          <Text as='header4'>Chatapp</Text>
-          {/* End Header Title */}
+      {/* Begin Header */}
+      <View style={styles.header}>
+        {/* Begin Header Title*/}
+        <Text as='header4'>Chatapp</Text>
+        {/* End Header Title */}
 
-          {/* Begin Header Options */}
-          <View style={styles.headerOptions}>
-            {/* Begin Search Button */}
-            <TouchableOpacity style={styles.btnSearch}>
-              <MaterialIcons name='search' size={34} color={colors.black} />
-            </TouchableOpacity>
-            {/* End Search Button */}
+        {/* Begin Header Options */}
+        <View style={styles.headerOptions}>
+          {/* Begin Search Button */}
+          <TouchableOpacity style={styles.btnSearch}>
+            <MaterialIcons name='search' size={34} color={colors.black} />
+          </TouchableOpacity>
+          {/* End Search Button */}
 
-            {/* Begin Show Menu Button */}
-            <TouchableOpacity
-              style={styles.btnShowMenu}
-              onPress={() => {
-                console.log("click !");
-                navigation.openDrawer();
-              }}>
-              <MaterialIcons name='menu' size={34} color={colors.black} />
-            </TouchableOpacity>
-            {/* End Show Menu Button */}
-          </View>
-          {/* End Header Options */}
+          {/* Begin Show Menu Button */}
+          <TouchableOpacity
+            style={styles.btnShowMenu}
+            onPress={() => {
+              console.log("click !");
+              navigation.openDrawer();
+            }}>
+            <MaterialIcons name='menu' size={34} color={colors.black} />
+          </TouchableOpacity>
+          {/* End Show Menu Button */}
         </View>
-        {/* End Header */}
+        {/* End Header Options */}
+      </View>
+      {/* End Header */}
 
-        {/* Begin activity Section */}
-        <View style={styles.activitiesSection}>
-          {/* Begin activities Section Title*/}
-          <Text as='header5' style={styles.title}>
-            Activities
-          </Text>
-          {/* End activities Section Title */}
+      {/* Begin activity Section */}
+      <View style={styles.activitiesSection}>
+        {/* Begin activities Section Title*/}
+        <Text as='header5' style={styles.title}>
+          Activities
+        </Text>
+        {/* End activities Section Title */}
 
-          {/* Begin activities Section  Content*/}
-          <ScrollView
-            horizontal
-            style={styles.activitiesContent}
-            showsHorizontalScrollIndicator={false}>
-            {ACTIVITIES.map((activity, index) => (
-              <ActivityItem
-                key={index}
-                navigation={navigation}
-                image={activity.image}
-                name={activity.name}
-                activity={activity.activity}
-                seenActivty={activity.seenActivty}
-              />
-            ))}
-          </ScrollView>
-          {/* End activities Section  Content */}
-        </View>
-        {/* End activities Section  */}
+        {/* Begin activities Section  Content*/}
 
-        {/* Begin Convertations Section */}
-        <View style={styles.convertationSection}>
-          {/* Begin Convertations Section Title*/}
-          <Text as='header5' style={styles.title}>
-            Messages
-          </Text>
-          {/* End Convertations Section Title */}
-
-          {/* Begin Convertations Section  Content*/}
-
-          {CONVERTATIONS.map((convertation, index) => (
-            <ConvertationItem
-              key={index}
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={ACTIVITIES}
+          renderItem={({ item }) => (
+            <ActivityItem
               navigation={navigation}
-              convertation={convertation}
+              image={item.image}
+              name={item.name}
+              activity={item.activity}
+              seenActivty={item.seenActivty}
             />
-          ))}
-          {/* End Convertations Section  Content */}
-        </View>
-        {/* End Convertations Section  */}
-      </ScrollView>
+          )}
+          keyExtractor={item => item.id}
+        />
+
+        {/* End activities Section  Content */}
+      </View>
+      {/* End activities Section  */}
+
+      {/* Begin Convertations Section */}
+      <View style={styles.convertationSection}>
+        {/* Begin Convertations Section Title*/}
+        <Text as='header5' style={styles.title}>
+          Messages
+        </Text>
+        {/* End Convertations Section Title */}
+
+        {/* Begin Convertations Section  Content*/}
+
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={CONVERTATIONS}
+          renderItem={({ item }) => (
+            <ConvertationItem navigation={navigation} convertation={item} />
+          )}
+          keyExtractor={item => item.id}
+        />
+
+        {/* End Convertations Section  Content */}
+      </View>
+      {/* End Convertations Section  */}
+
       <TouchableOpacity style={styles.btnAdd}>
         <Ionicons name='add' size={30} color={colors.white} />
       </TouchableOpacity>
@@ -215,6 +230,9 @@ const styles = StyleSheet.create({
   },
   activitiesContent: {
     paddingVertical: 20,
+  },
+  convertationSection: {
+    marginTop: 30,
   },
   btnAdd: {
     position: "absolute",
